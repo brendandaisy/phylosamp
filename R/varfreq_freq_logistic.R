@@ -31,3 +31,18 @@ varfreq_freq_logistic <- function(t, p0_v1, r_v1, c_ratio = 1) {
   g <- 1 / (1 + (b * exp(-r_v1 * t)))
   return(g)
 }
+
+# no c_ratio because this represents the time prevalence `pmax_v1` is ACTUALLY achieved
+find_tmax <- function(p_v1, p0_v1, r_v1) {
+    if (!all(is.numeric(p_v1), p_v1 > 0 & p_v1 <= 1)) stop("Desired final prevalence must numeric and between 0 and 1.")
+    if (!all(is.numeric(p0_v1), p0_v1 > 0 & p0_v1 <= 1)) stop("Initial variant prevalence must numeric and between 0 and 1.")
+    if (!is.numeric(r_v1)) stop("Growth rate must be numeric.")
+    if (!((r_v1 > 0 & p0_v1 <= p_v1) | (r_v1 < 0 & p_v1 <= p0_v1)))
+        return(Inf)
+        # stop("Desired prevalence cannot be reached. Consider switching between logistic growth/decay.")
+    
+    a <- (1 / p0_v1) - 1
+    ceiling(-log((1-p_v1)/(a*p_v1)) / r_v1)
+}
+
+dom_time <- function(p0_v1, r_v1) find_tmax(0.5, p0_v1, r_v1)
