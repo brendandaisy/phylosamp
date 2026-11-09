@@ -5,16 +5,20 @@
 \title{Calculate sample size needed for estimating variant prevalence given a desired confidence}
 \usage{
 vartrack_samplesize_prev(
-  p_v1,
+  p_v1 = NA,
   prob,
   precision,
   omega,
   c_ratio = 1,
-  sampling_freq
+  sampling_freq,
+  t = NA,
+  p0_v1 = NA,
+  r_v1 = NA,
+  tau = 0
 )
 }
 \arguments{
-\item{p_v1}{variant prevalence (proportion)}
+\item{p_v1}{variant prevalence (proportion). For periodic sampling, the true variant prevalence (regardless of \code{c_ratio}) at which variant prevalence should be estimated. Default = NA (for periodic sampling, either \code{'t'} or \code{'p_v1'} should be provided, not both)}
 
 \item{prob}{desired confidence in variant prevalence estimate}
 
@@ -24,38 +28,61 @@ vartrack_samplesize_prev(
 
 \item{c_ratio}{coefficient of detection ratio, calculated as the ratio of the coefficients of variant 1 to variant 2. Default = 1 (no bias)}
 
-\item{sampling_freq}{the sampling frequency (must be 'xsect' in current implementation)}
+\item{sampling_freq}{the sampling frequency (must be either 'xsect' or 'cont')}
+
+\item{t}{time step number (e.g., days) at which prevalence should be estimated (periodic sampling only). Default = NA}
+
+\item{p0_v1}{initial variant prevalence when sampling begins (periodic sampling only)}
+
+\item{r_v1}{logistic growth rate (periodic sampling only)}
+
+\item{tau}{turnaround time, i.e., the number of time steps between sample collection and when results are available (periodic sampling only). Default = 0}
 }
 \value{
-scalar of sample size
+scalar of sample size (per timestep for periodic sampling)
 }
 \description{
 This function calculates the sample size needed for estimating variant prevalence
-given a desired confidence and desired precision in the variant prevalence estimate.
-Currently, only cross-sectional sampling is supported.
+given a desired confidence and desired precision in the variant prevalence estimate
+and sampling strategy.
 }
 \examples{
-vartrack_samplesize_prev(p_v1 = 0.1, prob = 0.95, precision = 0.25, 
+# Cross-sectional sampling
+vartrack_samplesize_prev(p_v1 = 0.1, prob = 0.95, precision = 0.25,
 omega = 0.8, c_ratio = 1, sampling_freq = 'xsect')
+
+# Periodic sampling
+vartrack_samplesize_prev(p_v1 = 0.03, prob = 0.95, precision = 0.15, omega = 0.8,
+p0_v1 = 1/10000, r_v1 = 0.12, c_ratio = 1, sampling_freq = 'cont')
 
 }
 \seealso{
-Other variant prevalence estimation functions: 
-\code{\link{vartrack_prob_prev_xsect}()},
-\code{\link{vartrack_prob_prev}()},
-\code{\link{vartrack_samplesize_prev_xsect}()}
+Other variant prevalence estimation functions:
+\code{\link[=vartrack_prob_prev]{vartrack_prob_prev()}},
+\code{\link[=vartrack_prob_prev_xsect]{vartrack_prob_prev_xsect()}},
+\code{\link[=vartrack_samplesize_prev_cont]{vartrack_samplesize_prev_cont()}},
+\code{\link[=vartrack_samplesize_prev_xsect]{vartrack_samplesize_prev_xsect()}},
+\code{\link[=vartrack_tmin_prev]{vartrack_tmin_prev()}}
 
-Other variant tracking functions: 
-\code{\link{vartrack_cod_ratio}()},
-\code{\link{vartrack_prob_detect_cont}()},
-\code{\link{vartrack_prob_detect_xsect}()},
-\code{\link{vartrack_prob_detect}()},
-\code{\link{vartrack_prob_prev_xsect}()},
-\code{\link{vartrack_prob_prev}()},
-\code{\link{vartrack_samplesize_detect_cont}()},
-\code{\link{vartrack_samplesize_detect_xsect}()},
-\code{\link{vartrack_samplesize_detect}()},
-\code{\link{vartrack_samplesize_prev_xsect}()}
+Other variant tracking functions:
+\code{\link[=vartrack_cod_ratio]{vartrack_cod_ratio()}},
+\code{\link[=vartrack_power_growth]{vartrack_power_growth()}},
+\code{\link[=vartrack_prob_detect]{vartrack_prob_detect()}},
+\code{\link[=vartrack_prob_detect_cont]{vartrack_prob_detect_cont()}},
+\code{\link[=vartrack_prob_detect_xsect]{vartrack_prob_detect_xsect()}},
+\code{\link[=vartrack_prob_prev]{vartrack_prob_prev()}},
+\code{\link[=vartrack_prob_prev_xsect]{vartrack_prob_prev_xsect()}},
+\code{\link[=vartrack_samplesize_detect]{vartrack_samplesize_detect()}},
+\code{\link[=vartrack_samplesize_detect_cont]{vartrack_samplesize_detect_cont()}},
+\code{\link[=vartrack_samplesize_detect_xsect]{vartrack_samplesize_detect_xsect()}},
+\code{\link[=vartrack_samplesize_dominance]{vartrack_samplesize_dominance()}},
+\code{\link[=vartrack_samplesize_growth]{vartrack_samplesize_growth()}},
+\code{\link[=vartrack_samplesize_growth_power]{vartrack_samplesize_growth_power()}},
+\code{\link[=vartrack_samplesize_prev_cont]{vartrack_samplesize_prev_cont()}},
+\code{\link[=vartrack_samplesize_prev_xsect]{vartrack_samplesize_prev_xsect()}},
+\code{\link[=vartrack_tmin_dominance]{vartrack_tmin_dominance()}},
+\code{\link[=vartrack_tmin_growth]{vartrack_tmin_growth()}},
+\code{\link[=vartrack_tmin_prev]{vartrack_tmin_prev()}}
 }
 \author{
 Shirlee Wohl, Elizabeth C. Lee, Bethany L. DiPrete, and Justin Lessler

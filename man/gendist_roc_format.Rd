@@ -62,12 +62,12 @@ roc_calc <- gendist_roc_format(cutoff = 1:(max(dists$dist)-1),
 
 }
 \seealso{
-Other genetic distance functions: 
-\code{\link{gendist_distribution}()},
-\code{\link{gendist_sensspec_cutoff}()}
+Other genetic distance functions:
+\code{\link[=gendist_distribution]{gendist_distribution()}},
+\code{\link[=gendist_sensspec_cutoff]{gendist_sensspec_cutoff()}}
 
-Other ROC functions: 
-\code{\link{optim_roc_threshold}()}
+Other ROC functions:
+\code{\link[=optim_roc_threshold]{optim_roc_threshold()}}
 }
 \author{
 Shirlee Wohl and Justin Lessler

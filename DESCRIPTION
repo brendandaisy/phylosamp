@@ -8,6 +8,7 @@ Authors@R: c(person("Shirlee", "Wohl", role=c("aut", "ctb"), email="swohl@scripp
               person("Lucy", "D'Agostino McGowan", role=c("aut", "ctb"), email = "lucydagostino@gmail.com", 
               comment = c(ORCID = "0000-0002-6983-2759")),
               person("John R", "Giles", role=c("aut", "ctb"), email="jrgiles@uw.edu"),
+              person("B. K. M.", "Case", role=c("aut", "ctb"), email="brynn.case@nau.edu"),
               person("Justin", "Lessler", role=c("aut", "cre"), email="jlessler@unc.edu"))
 Maintainer: Justin Lessler <jlessler@unc.edu>
 Description: Implements novel tools for estimating sample sizes needed for phylogenetic studies, including
@@ -17,7 +18,6 @@ URL: https://github.com/HopkinsIDD/phylosamp
 BugReports: https://github.com/HopkinsIDD/phylosamp/issues
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
 Depends:
   R (>= 2.10),
   stats
@@ -37,3 +37,4 @@ Suggests:
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.0

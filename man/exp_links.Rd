@@ -48,10 +48,10 @@ exp_links(eta=0.99, chi=0.95, rho=0.05, M=1000, R=1, assumption='mtml')
 
 }
 \seealso{
-Other obs_pairs: 
-\code{\link{obs_pairs_mtml}()},
-\code{\link{obs_pairs_mtsl}()},
-\code{\link{obs_pairs_stsl}()}
+Other obs_pairs:
+\code{\link[=obs_pairs_mtml]{obs_pairs_mtml()}},
+\code{\link[=obs_pairs_mtsl]{obs_pairs_mtsl()}},
+\code{\link[=obs_pairs_stsl]{obs_pairs_stsl()}}
 }
 \author{
 John Giles, Shirlee Wohl, and Justin Lessler

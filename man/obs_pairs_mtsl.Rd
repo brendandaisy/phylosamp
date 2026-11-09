@@ -39,10 +39,10 @@ obs_pairs_mtsl(eta=0.99, chi=0.9, rho=0.5, M=100, R=1)
 
 }
 \seealso{
-Other obs_pairs: 
-\code{\link{exp_links}()},
-\code{\link{obs_pairs_mtml}()},
-\code{\link{obs_pairs_stsl}()}
+Other obs_pairs:
+\code{\link[=exp_links]{exp_links()}},
+\code{\link[=obs_pairs_mtml]{obs_pairs_mtml()}},
+\code{\link[=obs_pairs_stsl]{obs_pairs_stsl()}}
 }
 \author{
 John Giles, Shirlee Wohl and Justin Lessler

@@ -47,10 +47,10 @@ optim_point <- get_optim_roc(roc_calc)
 
 }
 \seealso{
-Other mutrate_functions: 
-\code{\link{gen_dists}()},
-\code{\link{sens_spec_calc}()},
-\code{\link{sens_spec_roc}()}
+Other mutrate_functions:
+\code{\link[=gen_dists]{gen_dists()}},
+\code{\link[=sens_spec_calc]{sens_spec_calc()}},
+\code{\link[=sens_spec_roc]{sens_spec_roc()}}
 }
 \author{
 Shirlee Wohl, John Giles, and Justin Lessler

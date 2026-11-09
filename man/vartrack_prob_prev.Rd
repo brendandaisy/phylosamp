@@ -33,22 +33,32 @@ c_ratio = 1, sampling_freq = 'xsect')
 
 }
 \seealso{
-Other variant prevalence estimation functions: 
-\code{\link{vartrack_prob_prev_xsect}()},
-\code{\link{vartrack_samplesize_prev_xsect}()},
-\code{\link{vartrack_samplesize_prev}()}
+Other variant prevalence estimation functions:
+\code{\link[=vartrack_prob_prev_xsect]{vartrack_prob_prev_xsect()}},
+\code{\link[=vartrack_samplesize_prev]{vartrack_samplesize_prev()}},
+\code{\link[=vartrack_samplesize_prev_cont]{vartrack_samplesize_prev_cont()}},
+\code{\link[=vartrack_samplesize_prev_xsect]{vartrack_samplesize_prev_xsect()}},
+\code{\link[=vartrack_tmin_prev]{vartrack_tmin_prev()}}
 
-Other variant tracking functions: 
-\code{\link{vartrack_cod_ratio}()},
-\code{\link{vartrack_prob_detect_cont}()},
-\code{\link{vartrack_prob_detect_xsect}()},
-\code{\link{vartrack_prob_detect}()},
-\code{\link{vartrack_prob_prev_xsect}()},
-\code{\link{vartrack_samplesize_detect_cont}()},
-\code{\link{vartrack_samplesize_detect_xsect}()},
-\code{\link{vartrack_samplesize_detect}()},
-\code{\link{vartrack_samplesize_prev_xsect}()},
-\code{\link{vartrack_samplesize_prev}()}
+Other variant tracking functions:
+\code{\link[=vartrack_cod_ratio]{vartrack_cod_ratio()}},
+\code{\link[=vartrack_power_growth]{vartrack_power_growth()}},
+\code{\link[=vartrack_prob_detect]{vartrack_prob_detect()}},
+\code{\link[=vartrack_prob_detect_cont]{vartrack_prob_detect_cont()}},
+\code{\link[=vartrack_prob_detect_xsect]{vartrack_prob_detect_xsect()}},
+\code{\link[=vartrack_prob_prev_xsect]{vartrack_prob_prev_xsect()}},
+\code{\link[=vartrack_samplesize_detect]{vartrack_samplesize_detect()}},
+\code{\link[=vartrack_samplesize_detect_cont]{vartrack_samplesize_detect_cont()}},
+\code{\link[=vartrack_samplesize_detect_xsect]{vartrack_samplesize_detect_xsect()}},
+\code{\link[=vartrack_samplesize_dominance]{vartrack_samplesize_dominance()}},
+\code{\link[=vartrack_samplesize_growth]{vartrack_samplesize_growth()}},
+\code{\link[=vartrack_samplesize_growth_power]{vartrack_samplesize_growth_power()}},
+\code{\link[=vartrack_samplesize_prev]{vartrack_samplesize_prev()}},
+\code{\link[=vartrack_samplesize_prev_cont]{vartrack_samplesize_prev_cont()}},
+\code{\link[=vartrack_samplesize_prev_xsect]{vartrack_samplesize_prev_xsect()}},
+\code{\link[=vartrack_tmin_dominance]{vartrack_tmin_dominance()}},
+\code{\link[=vartrack_tmin_growth]{vartrack_tmin_growth()}},
+\code{\link[=vartrack_tmin_prev]{vartrack_tmin_prev()}}
 }
 \author{
 Shirlee Wohl, Elizabeth C. Lee, Bethany L. DiPrete, and Justin Lessler

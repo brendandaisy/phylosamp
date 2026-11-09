@@ -48,8 +48,8 @@ falsediscoveryrate(eta=0.99, chi=0.95, rho=0.5, M=1000, R=1, assumption='mtml')
 
 }
 \seealso{
-Other discovery_rate: 
-\code{\link{truediscoveryrate}()}
+Other discovery_rate:
+\code{\link[=truediscoveryrate]{truediscoveryrate()}}
 }
 \author{
 John Giles, Shirlee Wohl, and Justin Lessler

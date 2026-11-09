@@ -46,8 +46,8 @@ optim_point <- optim_roc_threshold(roc_calc)
 
 }
 \seealso{
-Other ROC functions: 
-\code{\link{gendist_roc_format}()}
+Other ROC functions:
+\code{\link[=gendist_roc_format]{gendist_roc_format()}}
 }
 \author{
 Shirlee Wohl, John Giles, and Justin Lessler

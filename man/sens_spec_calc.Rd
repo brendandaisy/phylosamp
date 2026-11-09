@@ -52,10 +52,10 @@ sens_spec_calc(cutoff=1:10,
 
 }
 \seealso{
-Other mutrate_functions: 
-\code{\link{gen_dists}()},
-\code{\link{get_optim_roc}()},
-\code{\link{sens_spec_roc}()}
+Other mutrate_functions:
+\code{\link[=gen_dists]{gen_dists()}},
+\code{\link[=get_optim_roc]{get_optim_roc()}},
+\code{\link[=sens_spec_roc]{sens_spec_roc()}}
 }
 \author{
 Shirlee Wohl and Justin Lessler

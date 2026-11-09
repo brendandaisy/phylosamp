@@ -50,10 +50,10 @@ gen_dists(mut_rate = mut_rate,
 
 }
 \seealso{
-Other mutrate_functions: 
-\code{\link{get_optim_roc}()},
-\code{\link{sens_spec_calc}()},
-\code{\link{sens_spec_roc}()}
+Other mutrate_functions:
+\code{\link[=get_optim_roc]{get_optim_roc()}},
+\code{\link[=sens_spec_calc]{sens_spec_calc()}},
+\code{\link[=sens_spec_roc]{sens_spec_roc()}}
 }
 \author{
 Shirlee Wohl and Justin Lessler

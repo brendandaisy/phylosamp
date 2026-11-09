@@ -30,10 +30,10 @@ true_pairs_stsl(eta=0.95, rho=0.2, M=200)
 
 }
 \seealso{
-Other true_pairs: 
-\code{\link{true_pairs_mtml}()},
-\code{\link{true_pairs_mtsl}()},
-\code{\link{true_pairs}()}
+Other true_pairs:
+\code{\link[=true_pairs]{true_pairs()}},
+\code{\link[=true_pairs_mtml]{true_pairs_mtml()}},
+\code{\link[=true_pairs_mtsl]{true_pairs_mtsl()}}
 }
 \author{
 John Giles, Shirlee Wohl, and Justin Lessler

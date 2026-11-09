@@ -27,13 +27,15 @@ varfreq_cdf_logistic(t = 30, p0_v1 = 1/10000, r_v1 = 0.1, c_ratio = 1)
 
 }
 \seealso{
-Other logistic growth functions: 
-\code{\link{varfreq_freq_logistic}()}
+Other logistic growth functions:
+\code{\link[=varfreq_freq_logistic]{varfreq_freq_logistic()}},
+\code{\link[=varfreq_time_logistic]{varfreq_time_logistic()}}
 
-Other variant frequency functions: 
-\code{\link{varfreq_expected_mbias}()},
-\code{\link{varfreq_freq_logistic}()},
-\code{\link{varfreq_obs_freq}()}
+Other variant frequency functions:
+\code{\link[=varfreq_expected_mbias]{varfreq_expected_mbias()}},
+\code{\link[=varfreq_freq_logistic]{varfreq_freq_logistic()}},
+\code{\link[=varfreq_obs_freq]{varfreq_obs_freq()}},
+\code{\link[=varfreq_time_logistic]{varfreq_time_logistic()}}
 }
 \author{
 Shirlee Wohl, Elizabeth C. Lee, Bethany L. DiPrete, and Justin Lessler

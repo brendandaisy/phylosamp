@@ -27,3 +27,29 @@ check_positive <- function(x) {
                    call = NULL)
   }
 }
+
+# Variance of the maximum likelihood estimate of the logistic growth rate given
+# one sample per time step from time 0 to t (i.e., the inverse Fisher information)
+var_growth_rate <- function(t, p0_v1, r_v1) {
+  ts <- 0:t
+  q <- stats::plogis(r_v1 * ts - log((1 / p0_v1) - 1))
+  return(1 / sum(ts^2 * q * (1 - q)))
+}
+
+# Derivative of variant prevalence at time t with respect to the logistic growth rate
+dprev_dgrowth <- function(t, p0_v1, r_v1) {
+  q <- stats::plogis(r_v1 * t - log((1 / p0_v1) - 1))
+  return(t * q * (1 - q))
+}
+
+# Derivative of the dominance time (time to 50% prevalence) with respect to the logistic growth rate
+ddominance_dgrowth <- function(p0_v1, r_v1) {
+  a <- (1 / p0_v1) - 1
+  return(-log(a) / r_v1^2)
+}
+
+# Absolute error in dominance time corresponding to a relative precision in prevalence at dominance,
+# i.e., the time between the variant reaching 0.5*(1 - precision) and 0.5 prevalence
+dominance_error <- function(precision, r_v1) {
+  return(log((1 + precision) / (1 - precision)) / abs(r_v1))
+}

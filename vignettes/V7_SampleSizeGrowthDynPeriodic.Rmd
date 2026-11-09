@@ -1,0 +1,111 @@
+---
+title: Calculating sample sizes for estimating the growth advantage, prevalence, and other characteristics of a variant of interest
+subtitle: Periodic sampling for growth and dynamics
+output: rmarkdown::html_vignette
+vignette: >
+---
+
+`phylosamp` now supports functionality for calculating sample sizes for
+a range of common sampling objectives under periodic surveillance using
+the methods described in TODO:CITATION. These objectives include
+estimating a variants **growth advantage**, which captures its intrinsic
+growth rate relative to other circulating variants, its **dominance
+time**, or the predicted time in which the variant will reach 50%
+frequency in the population, and an updated methodology for tracking the
+variant's **prevalence**.
+Additionally, there is a general interface to allow users to specify their own objectives
+they would like to infer with variant tracking beyond these three.
+
+TODOCore assumptions of the calculator, such as assuming the true prevalence follows a logistic growth curve. 
+
+![Common inference objectives when tracking a variant of interest over
+time](figures/growth-dyn-figure-1.png)
+
+<br>
+
+These functions are named following the `vartrack_samplesize_*` convention.
+Similar to the other variant tracking functions, users can pass the following settings:
+
+TABLE TODO
+
+#### Growth advantage
+
+Consider a pathogen variant of interest with a growth advantage similar to the Omicron SARS-CoV-2 variant, which we conservatively specify as 0.84 per week. Suppose we are interested
+in estimating the growth advantage within 8 weeks after the variant is introduced, and that there are around 10,000 confirmed cases available to sample from per week. 
+Such a magnitude of confirmed cases might be appropriate for a large national surveillance system. To determine the number of sequences needed to infer the true growth advantage within 15% of its true value with 95% confidence, we may call
+
+```{r}
+vartrack_samplesize_growth(0.84, 1/10000, t=8, prob=0.95, precision=0.15)
+```
+
+Here we assume all sequences are successful and that no biases are present, yielding that **35 sequences per week** are necessary to infer this growth advantage.
+
+To adjust for sequencing success and other biases, 
+now suppose we wish to account for a 80% probability of obtaining a high-quality sequence and
+that the variant has increased an increased testing sensitivity and probability of meeting
+quality thresholds.
+Using the same example values for these probabilities as in [Estimating bias in observed variant prevalence](V1_CoefficientDetectionBias.html) and elsewhere, we obtain a coefficient of
+detection of around 1.37 and supply these settings to the calculator
+```{r}
+c1_c2 <- vartrack_cod_ratio(phi_v1=0.975, phi_v2=0.95, gamma_v1=0.8, gamma_v2=0.6)
+vartrack_samplesize_growth(0.84, 1/10000, 8, omega=0.8, c_ratio=c1_c2)
+```
+Here again we have assumed the default accuracy settings of 15% precision and 95% confidence.
+
+Within a periodic sampling framework, we can account for reporting delays between when a sample is first collected and when its results come back from sequencing. We may therefore adjust for a two week turnaround time using our previous settings as follows
+```{r}
+vartrack_samplesize_growth(0.84, 1/10000, 8, omega=0.8, c_ratio=c1_c2, tau=2)
+```
+In this example, this increases the sample size considerably since we essentially only have 6 weeks of data to work with, and hence more sequences per week are needed to fill the gap, and the variant's prevalence is lower overall within our observation window.
+Since lower prevalence means the variant is more difficult to detect, more samples are required to gather the necessary information about how fast it is growing.
+
+##### Specifying the observation period in terms of a tolerable frequency
+
+Rather than specifying a fixed number of weeks we are willing to wait, it may be more interpretable in terms of resource planning to specify a particular prevalence we are willing to let the variant reach.
+In the manuscript we refer to this value as the **observation threshold**.
+A lower threshold indicates the need for more timely estimation. 
+For example, we may wish to know a variant’s growth by the time it reached 30% circulation in a local population, regardless of how long it takes to reach this value.
+To do so, we replace the argument `t=8` with `p_v1=0.3`, keeping our bias and turnaround time settings from the previous example
+```{r}
+vartrack_samplesize_growth(0.84, 1/10000, p_v1=0.3, omega=0.8, c_ratio=c1_c2, tau=2)
+```
+The sample size went down from the previous example since a 30% observation threshold leads to a longer observation window than 8 weeks, for these settings of `r_v1` and `p0_v1`.
+We can check this as follows
+```{r}
+varfreq_time_logistic(p_v1=0.3, p0_v1=1/10000, r_v1=0.84)
+```
+Note that all sample size calculations round down the observation time when `p_v1` is specified, resulting in a conservative sample size where only "complete" time periods are used. 
+Thus the previous sample size assumed 9 weeks of observation. 
+
+#### Prevalence under periodic sampling
+
+We now turn to estimating a variant's prevalence (frequency) under a periodic surveillance framework. Unlike with cross-sectional sampling, this allows us to account for the accrual of information over time. For example, if we want to be able to estimate the prevalence of a variant within 8 weeks of introduction, we can use all the sequences gathered in weeks 1 through 7 to begin capturing how the variant is growing over time, thus giving us a more accurate estimate of its prevalence at the 8 weeks target.
+
+Again using our example settings for an Omicron-like variant in a nationally-sized case pool and with sampling biases modestly enriching samples for the variant of interest, the number of sequences required to estimate prevalence within 8 weeks and within 15% of the true prevalence and 95% confidence is:
+```{r}
+vartrack_samplesize_prev_cont(0.84, 1/10000, 8, omega=0.8, c_ratio=c1_c2)
+```
+
+For comparison, when assuming a cross-sectional surveillance setting (as might be necessary if sequences are not labelled by time, for example), the required sample size is much higher
+```{r}
+true_prev <- varfreq_freq_logistic(t=8, p0_v1=1/10000, r_v1=0.84)
+vartrack_samplesize_prev_xsect(true_prev, prob=0.95, precision=0.15, omega=0.8)
+```
+Of course, with periodic surveillance sequences need to be gathered repeatedly by definition, while cross-sectional surveillance requires just a single time point.
+However, in an ongoing surveillance setting sequences would ideally be collected at regular intervals 
+
+```{r}
+true_prev_pooled <- mean(varfreq_freq_logistic(t=1:8, p0_v1=1/10000, r_v1=0.84))
+```
+```{r}
+vartrack_samplesize_prev_xsect(true_prev_pooled, prob=0.95, precision=0.15, omega=0.8)
+```
+
+
+
+
+<!-- Moreover, with periodic sampling, we have a nice property that sample sizes are strictly decreasing as the observation period increases. -->
+<!-- This means that if $n$ sequences per week are sufficient to estimate a variant's prevalence at some time $t$, then $n$ weekly sequences are also sufficient  -->
+
+As with the growth advantage, we can specify a observation tolerance `p_v1` rather than a fixed observation window.
+In this case, we're ba

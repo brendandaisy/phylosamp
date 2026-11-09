@@ -42,9 +42,9 @@ prob_trans_stsl(eta=0.99, chi=0.95, rho=0.05, M=100)
 
 }
 \seealso{
-Other prob_trans: 
-\code{\link{prob_trans_mtml}()},
-\code{\link{prob_trans_mtsl}()}
+Other prob_trans:
+\code{\link[=prob_trans_mtml]{prob_trans_mtml()}},
+\code{\link[=prob_trans_mtsl]{prob_trans_mtsl()}}
 }
 \author{
 John Giles, Shirlee Wohl, and Justin Lessler

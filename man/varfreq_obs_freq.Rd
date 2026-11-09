@@ -24,10 +24,11 @@ varfreq_obs_freq(p_v1 = 0.1, c_ratio = 1.1)
 
 }
 \seealso{
-Other variant frequency functions: 
-\code{\link{varfreq_cdf_logistic}()},
-\code{\link{varfreq_expected_mbias}()},
-\code{\link{varfreq_freq_logistic}()}
+Other variant frequency functions:
+\code{\link[=varfreq_cdf_logistic]{varfreq_cdf_logistic()}},
+\code{\link[=varfreq_expected_mbias]{varfreq_expected_mbias()}},
+\code{\link[=varfreq_freq_logistic]{varfreq_freq_logistic()}},
+\code{\link[=varfreq_time_logistic]{varfreq_time_logistic()}}
 }
 \author{
 Shirlee Wohl, Elizabeth C. Lee, Bethany L. DiPrete, and Justin Lessler

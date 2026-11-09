@@ -51,9 +51,9 @@ gendist_sensspec_cutoff(cutoff=1:10,
 
 }
 \seealso{
-Other genetic distance functions: 
-\code{\link{gendist_distribution}()},
-\code{\link{gendist_roc_format}()}
+Other genetic distance functions:
+\code{\link[=gendist_distribution]{gendist_distribution()}},
+\code{\link[=gendist_roc_format]{gendist_roc_format()}}
 }
 \author{
 Shirlee Wohl and Justin Lessler

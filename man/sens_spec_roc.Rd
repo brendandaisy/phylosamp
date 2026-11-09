@@ -63,10 +63,10 @@ roc_calc <- sens_spec_roc(cutoff = 1:(max(dists$dist)-1),
 
 }
 \seealso{
-Other mutrate_functions: 
-\code{\link{gen_dists}()},
-\code{\link{get_optim_roc}()},
-\code{\link{sens_spec_calc}()}
+Other mutrate_functions:
+\code{\link[=gen_dists]{gen_dists()}},
+\code{\link[=get_optim_roc]{get_optim_roc()}},
+\code{\link[=sens_spec_calc]{sens_spec_calc()}}
 }
 \author{
 Shirlee Wohl and Justin Lessler

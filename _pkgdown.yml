@@ -65,6 +65,17 @@ reference:
   desc: "Functions to calculate the sample size needed to estimate the prevalence of a variant in a population"
   contents:
   - matches("samplesize_prev")
+  - vartrack_tmin_prev
+
+- title: "Sample size for variant growth advantage estimation"
+  desc: "Functions to calculate the sample size or sampling time needed to estimate the growth advantage of a variant"
+  contents:
+  - matches("_growth")
+
+- title: "Sample size for variant dominance time estimation"
+  desc: "Functions to calculate the sample size or sampling time needed to estimate when a variant will become dominant"
+  contents:
+  - matches("_dominance")
 
 - title: "Sample size for detecting differential transmission"
   desc: "Functions to calculate the sample size needed to detect differential transmission between groups"

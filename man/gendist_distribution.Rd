@@ -49,9 +49,9 @@ gendist_distribution(mut_rate = mut_rate,
 
 }
 \seealso{
-Other genetic distance functions: 
-\code{\link{gendist_roc_format}()},
-\code{\link{gendist_sensspec_cutoff}()}
+Other genetic distance functions:
+\code{\link[=gendist_roc_format]{gendist_roc_format()}},
+\code{\link[=gendist_sensspec_cutoff]{gendist_sensspec_cutoff()}}
 }
 \author{
 Shirlee Wohl and Justin Lessler

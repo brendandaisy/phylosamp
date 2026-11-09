@@ -42,21 +42,21 @@ translink_prob_transmit_stsl(sensitivity=0.99, specificity=0.95, rho=0.05, M=100
 
 }
 \seealso{
-Other transmission linkage functions: 
-\code{\link{translink_expected_links_obs_mtml}()},
-\code{\link{translink_expected_links_obs_mtsl}()},
-\code{\link{translink_expected_links_obs_stsl}()},
-\code{\link{translink_expected_links_obs}()},
-\code{\link{translink_expected_links_true_mtml}()},
-\code{\link{translink_expected_links_true_mtsl}()},
-\code{\link{translink_expected_links_true_stsl}()},
-\code{\link{translink_expected_links_true}()},
-\code{\link{translink_fdr}()},
-\code{\link{translink_prob_transmit_mtml}()},
-\code{\link{translink_prob_transmit_mtsl}()},
-\code{\link{translink_prob_transmit}()},
-\code{\link{translink_samplesize}()},
-\code{\link{translink_tdr}()}
+Other transmission linkage functions:
+\code{\link[=translink_expected_links_obs]{translink_expected_links_obs()}},
+\code{\link[=translink_expected_links_obs_mtml]{translink_expected_links_obs_mtml()}},
+\code{\link[=translink_expected_links_obs_mtsl]{translink_expected_links_obs_mtsl()}},
+\code{\link[=translink_expected_links_obs_stsl]{translink_expected_links_obs_stsl()}},
+\code{\link[=translink_expected_links_true]{translink_expected_links_true()}},
+\code{\link[=translink_expected_links_true_mtml]{translink_expected_links_true_mtml()}},
+\code{\link[=translink_expected_links_true_mtsl]{translink_expected_links_true_mtsl()}},
+\code{\link[=translink_expected_links_true_stsl]{translink_expected_links_true_stsl()}},
+\code{\link[=translink_fdr]{translink_fdr()}},
+\code{\link[=translink_prob_transmit]{translink_prob_transmit()}},
+\code{\link[=translink_prob_transmit_mtml]{translink_prob_transmit_mtml()}},
+\code{\link[=translink_prob_transmit_mtsl]{translink_prob_transmit_mtsl()}},
+\code{\link[=translink_samplesize]{translink_samplesize()}},
+\code{\link[=translink_tdr]{translink_tdr()}}
 }
 \author{
 John Giles, Shirlee Wohl, and Justin Lessler
